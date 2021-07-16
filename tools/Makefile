@@ -7,7 +7,7 @@ CC ?= gcc        # used for sph2pipe
 
 WGET ?= wget
 
-OPENFST_VERSION ?= 1.7.2
+OPENFST_VERSION ?= 1.7.9
 CUB_VERSION ?= 1.8.0
 # No '?=', since there exists only one version of sph2pipe.
 SPH2PIPE_VERSION = 2.5
@@ -92,8 +92,7 @@ openfst-$(OPENFST_VERSION).tar.gz:
 	if [ -d "$(DOWNLOAD_DIR)" ]; then \
 	  cp -p "$(DOWNLOAD_DIR)/openfst-$(OPENFST_VERSION).tar.gz" .; \
 	else \
-	  $(WGET) -nv -T 10 -t 1 http://www.openfst.org/twiki/pub/FST/FstDownload/openfst-$(OPENFST_VERSION).tar.gz || \
-	  $(WGET) -nv -T 10 -t 3 -c https://www.openslr.org/resources/2/openfst-$(OPENFST_VERSION).tar.gz; \
+	  $(WGET) -nv -T 10 -t 1 http://www.openfst.org/twiki/pub/FST/FstDownload/openfst-$(OPENFST_VERSION).tar.gz; \
 	fi
 
 openfst_cleaned:
